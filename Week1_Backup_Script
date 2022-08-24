@@ -1,0 +1,7 @@
+#!/bin/bash
+
+BACKUPDIR=$1
+COMPRESSION=$2
+FILENAME=$3
+
+tar -cvzf $FILENAME.tar.gz $BACKUPDIR | openssl enc -e -aes256 >/dev/null 2> error.log
