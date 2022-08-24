@@ -4,4 +4,4 @@ BACKUPDIR=$1
 COMPRESSION=$2
 FILENAME=$3
 
-tar -cv$COMPRESSIONf $FILENAME.tar.$COMPRESSION $BACKUPDIR | openssl enc -e -aes256 >/dev/null 2> error.log
+tar -c -$COMPRESSION $BACKUPDIR | openssl enc -e -aes256 -out $FILENAME.tar.gz >/dev/null 2> error.log
